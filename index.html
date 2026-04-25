@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Jerico Sison — Fresh Graduate Portfolio" />
+    <title>Jerico Sison | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <!-- Loader -->
+    <div id="loader" class="loader" aria-hidden="true">
+      <div class="loader__card">
+        <div class="loader__mark" aria-hidden="true"></div>
+        <div class="loader__text">
+          <div class="loader__title">Loading portfolio</div>
+          <div class="loader__sub">Jerico Sison</div>
+        </div>
+      </div>
+    </div>
+
+    <header class="topbar" id="top">
+      <div class="container topbar__inner">
+        <a class="brand" href="#top" aria-label="Go to top">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text">Jerico</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+            <span class="nav__toggleLines" aria-hidden="true"></span>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+          <div class="nav__links" id="navLinks">
+            <a class="nav__link" href="#about">About</a>
+            <a class="nav__link" href="#skills">Skills</a>
+            <a class="nav__link" href="#education">Education</a>
+            <a class="nav__link" href="#projects">Projects</a>
+            <a class="nav__link" href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__copy reveal">
+            <div class="pill">
+              <span class="pill__spark" aria-hidden="true"></span>
+              Fresh Graduate • BSIT (2026)
+            </div>
+            <h1 class="hero__title">
+              Hi, I’m <span class="accent">Jerico G. Sison</span>.
+              <br />
+              I build clean, user-friendly websites.
+            </h1>
+            <p class="hero__lead">
+              Based in Pampanga, Philippines. I’m an aspiring IT professional who enjoys turning ideas into
+              practical, simple, and polished digital experiences.
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#projects">View projects</a>
+              <a class="btn btn--ghost" href="#contact">Contact me</a>
+            </div>
+
+            <div class="hero__meta">
+              <div class="metaCard">
+                <div class="metaCard__kicker">Currently</div>
+                <div class="metaCard__value">Open to opportunities</div>
+              </div>
+              <div class="metaCard">
+                <div class="metaCard__kicker">Focus</div>
+                <div class="metaCard__value">Web + software fundamentals</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__visual reveal">
+            <div class="avatarCard">
+              <div class="avatarCard__glow" aria-hidden="true"></div>
+              <img class="avatar" src="./img/me.jpg" alt="Portrait of Jerico Sison" />
+              <div class="avatarCard__badge">
+                <div class="badgeDot" aria-hidden="true"></div>
+                <div>
+                  <div class="badgeTitle">Jerico Sison</div>
+                  <div class="badgeSub">BSIT • PSAU</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="floatGrid" aria-hidden="true">
+              <div class="floatCard">HTML</div>
+              <div class="floatCard">CSS</div>
+              <div class="floatCard">JavaScript</div>
+              <div class="floatCard">PHP</div>
+              <div class="floatCard">MySQL</div>
+              <div class="floatCard">Git/GitHub</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__bg" aria-hidden="true">
+          <div class="blob blob--1"></div>
+          <div class="blob blob--2"></div>
+          <div class="noise"></div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">About</h2>
+            <p class="sectionHeader__subtitle">
+              A quick introduction — focused, friendly, and ready to grow.
+            </p>
+          </div>
+
+          <div class="grid2">
+            <div class="card reveal">
+              <h3 class="card__title">Who I am</h3>
+              <p class="card__text">
+                I’m Jerico G. Sison, a BSIT student (expected 2026) from Pampanga. I like building responsive
+                pages, learning modern workflows, and improving step-by-step through real projects.
+              </p>
+              <div class="chips" aria-label="Highlights">
+                <span class="chip">Fresh Graduate</span>
+                <span class="chip">Team-ready</span>
+                <span class="chip">Fast learner</span>
+                <span class="chip">Detail-focused</span>
+              </div>
+            </div>
+
+            <div class="card reveal">
+              <h3 class="card__title">What I bring</h3>
+              <ul class="list">
+                <li><strong>Reliable basics</strong>: HTML, CSS, JavaScript, and core programming concepts</li>
+                <li><strong>Office skills</strong>: Working knowledge of Microsoft Word &amp; Excel (not pro yet)</li>
+                <li><strong>Collaboration</strong>: Git/GitHub fundamentals and a clean, organized workflow</li>
+                <li><strong>Mindset</strong>: I ask questions, take feedback, and iterate quickly</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills" class="section section--alt">
+        <div class="container">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Skills</h2>
+            <p class="sectionHeader__subtitle">A practical toolkit for entry-level roles and real work.</p>
+          </div>
+
+          <div class="skillsGrid">
+            <div class="skillCard reveal">
+              <div class="skillCard__top">
+                <div class="skillIcon" aria-hidden="true">{"</>"}</div>
+                <h3 class="skillCard__title">Web Development</h3>
+              </div>
+              <p class="skillCard__text">Responsive layouts, clean UI, and smooth interactions.</p>
+              <div class="meters">
+                <div class="meter">
+                  <div class="meter__label">HTML</div>
+                  <div class="meter__bar"><span style="--w: 85%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">CSS</div>
+                  <div class="meter__bar"><span style="--w: 78%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">JavaScript</div>
+                  <div class="meter__bar"><span style="--w: 65%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skillCard reveal">
+              <div class="skillCard__top">
+                <div class="skillIcon" aria-hidden="true">⚙</div>
+                <h3 class="skillCard__title">Tools &amp; Workflow</h3>
+              </div>
+              <p class="skillCard__text">Version control, debugging, and consistent project structure.</p>
+              <div class="chips">
+                <span class="chip chip--soft">Git</span>
+                <span class="chip chip--soft">GitHub</span>
+                <span class="chip chip--soft">VS Code / Cursor</span>
+                <span class="chip chip--soft">Basics of testing</span>
+              </div>
+            </div>
+
+            <div class="skillCard reveal">
+              <div class="skillCard__top">
+                <div class="skillIcon" aria-hidden="true">📄</div>
+                <h3 class="skillCard__title">Office Productivity</h3>
+              </div>
+              <p class="skillCard__text">Comfortable with documents and spreadsheets for school/work needs.</p>
+              <div class="meters">
+                <div class="meter">
+                  <div class="meter__label">Microsoft Word</div>
+                  <div class="meter__bar"><span style="--w: 65%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">Microsoft Excel</div>
+                  <div class="meter__bar"><span style="--w: 55%"></span></div>
+                </div>
+              </div>
+              <div class="fineprint">Not a pro yet — actively improving through practice.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="section">
+        <div class="container">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Education</h2>
+            <p class="sectionHeader__subtitle">My academic background.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="timeItem reveal">
+              <div class="timeItem__dot" aria-hidden="true"></div>
+              <div class="timeItem__content">
+                <h3 class="timeItem__title">Pampanga State Agricultural University</h3>
+                <div class="timeItem__meta">BS Information Technology • Expected 2026 • San Agustin, Magalang, Pampanga</div>
+              </div>
+            </article>
+
+            <article class="timeItem reveal">
+              <div class="timeItem__dot" aria-hidden="true"></div>
+              <div class="timeItem__content">
+                <h3 class="timeItem__title">Ayala High School</h3>
+                <div class="timeItem__meta">Graduated 2019 • Ayala, Magalang, Pampanga</div>
+              </div>
+            </article>
+
+            <article class="timeItem reveal">
+              <div class="timeItem__dot" aria-hidden="true"></div>
+              <div class="timeItem__content">
+                <h3 class="timeItem__title">Sto. Niño Elementary School</h3>
+                <div class="timeItem__meta">Graduated 2013 • Sto. Niño, Magalang, Pampanga</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section section--alt">
+        <div class="container">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Projects</h2>
+            <p class="sectionHeader__subtitle">
+              Real projects and modules based on my work in the PSAU Admission System.
+            </p>
+          </div>
+
+          <div class="projectsGrid">
+            <article class="projectCard reveal">
+              <div class="projectGlow" aria-hidden="true"></div>
+              <div class="projectCard__top">
+                <div class="projectTag">Capstone</div>
+                <h3 class="projectCard__title">PSAU Admission System 2.0</h3>
+              </div>
+              <p class="projectCard__text">
+                End-to-end admission platform for Pampanga State Agricultural University, covering applicant intake,
+                authentication, status tracking, and admin workflows.
+              </p>
+              <ul class="projectBullets">
+                <li>Secure user registration and OTP-based verification</li>
+                <li>Applicant portal plus admin dashboard for review flow</li>
+                <li>Real-time updates and notification integration</li>
+              </ul>
+              <div class="projectCard__stack">
+                <span class="chip chip--soft">PHP</span>
+                <span class="chip chip--soft">MySQL</span>
+                <span class="chip chip--soft">Firebase</span>
+                <span class="chip chip--soft">JavaScript</span>
+              </div>
+              <div class="projectCard__actions">
+                <button class="btn btn--tiny" type="button" data-modal="project1">Preview</button>
+                <a
+                  class="btn btn--tiny btn--ghost"
+                  href="https://github.com/jerico-sison/psau-admission-system2"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+              </div>
+            </article>
+
+            <article class="projectCard reveal">
+              <div class="projectGlow" aria-hidden="true"></div>
+              <div class="projectCard__top">
+                <div class="projectTag">Module</div>
+                <h3 class="projectCard__title">Admin Review & Scheduling</h3>
+              </div>
+              <p class="projectCard__text">
+                Administrative tools to review applications, manage admission progress, and prepare next-step schedules
+                in a clear workflow.
+              </p>
+              <ul class="projectBullets">
+                <li>Application screening and status updates</li>
+                <li>Role-based page access for admin functions</li>
+                <li>Organized interface for faster operations</li>
+              </ul>
+              <div class="projectCard__stack">
+                <span class="chip chip--soft">PHP</span>
+                <span class="chip chip--soft">HTML/CSS</span>
+                <span class="chip chip--soft">Bootstrap-style UI</span>
+              </div>
+              <div class="projectCard__actions">
+                <button class="btn btn--tiny" type="button" data-modal="project2">Preview</button>
+              </div>
+            </article>
+
+            <article class="projectCard reveal">
+              <div class="projectGlow" aria-hidden="true"></div>
+              <div class="projectCard__top">
+                <div class="projectTag">Integration</div>
+                <h3 class="projectCard__title">Auth, Notifications & Document Flow</h3>
+              </div>
+              <p class="projectCard__text">
+                Connected services for secure login, document submission, and automated updates to improve admission
+                communication.
+              </p>
+              <ul class="projectBullets">
+                <li>Firebase authentication and verification flow</li>
+                <li>Email/SMS notification pipeline setup</li>
+                <li>Upload handling with structured backend processing</li>
+              </ul>
+              <div class="projectCard__stack">
+                <span class="chip chip--soft">Firebase</span>
+                <span class="chip chip--soft">Cloud Functions</span>
+                <span class="chip chip--soft">OCR-ready pipeline</span>
+              </div>
+              <div class="projectCard__actions">
+                <button class="btn btn--tiny" type="button" data-modal="project3">Preview</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Contact</h2>
+            <p class="sectionHeader__subtitle">Let’s connect — email is best.</p>
+          </div>
+
+          <div class="grid2">
+            <div class="card reveal">
+              <h3 class="card__title">Get in touch</h3>
+              <p class="card__text">
+                I’m open to internships, entry-level roles, and collaborations. If you have an opportunity or
+                project idea, feel free to message me.
+              </p>
+              <div class="contactRow">
+                <div class="contactLabel">Email</div>
+                <a class="contactValue" href="mailto:jericosison22@gmail.com">jericosison22@gmail.com</a>
+              </div>
+              <div class="contactRow">
+                <div class="contactLabel">GitHub</div>
+                <a class="contactValue" href="https://github.com/jerico-sison" target="_blank" rel="noreferrer">
+                  github.com/jerico-sison
+                </a>
+              </div>
+            </div>
+
+            <form class="card reveal" id="contactForm">
+              <h3 class="card__title">Quick message</h3>
+              <p class="card__text">This opens your email app with a pre-filled message.</p>
+              <label class="field">
+                <span class="field__label">Your name</span>
+                <input class="field__input" name="name" autocomplete="name" required />
+              </label>
+              <label class="field">
+                <span class="field__label">Subject</span>
+                <input class="field__input" name="subject" required />
+              </label>
+              <label class="field">
+                <span class="field__label">Message</span>
+                <textarea class="field__input field__textarea" name="message" rows="5" required></textarea>
+              </label>
+              <button class="btn btn--primary" type="submit">Open email</button>
+              <div class="fineprint" id="formHint" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>© <span id="year"></span> Jerico Sison</div>
+        <a class="footer__top" href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="project1" role="dialog" aria-modal="true" aria-label="Project preview" hidden>
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="document">
+        <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+        <h3 class="modal__title">PSAU Admission System 2.0</h3>
+        <p class="modal__text">
+          This is my full admission project for PSAU. It is built with PHP, MySQL, and Firebase services to manage
+          registration, verification, application progress, and administrative processing in one workflow.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal" id="project2" role="dialog" aria-modal="true" aria-label="Project preview" hidden>
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="document">
+        <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+        <h3 class="modal__title">Admin Review & Scheduling</h3>
+        <p class="modal__text">
+          This module handles application review operations and scheduling-related tasks, helping admins process
+          applicant records efficiently with role-aware controls.
+        </p>
+      </div>
+    </div>
+
+    <div class="modal" id="project3" role="dialog" aria-modal="true" aria-label="Project preview" hidden>
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="document">
+        <button class="modal__close" type="button" data-close aria-label="Close">×</button>
+        <h3 class="modal__title">Auth, Notifications & Document Flow</h3>
+        <p class="modal__text">
+          This part integrates Firebase authentication, cloud-triggered notifications, and upload/document flow to keep
+          applicants informed while maintaining a secure process.
+        </p>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
