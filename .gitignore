@@ -1,4 +1,14 @@
-﻿# OS files
+﻿# Operating system
 .DS_Store
 Thumbs.db
+desktop.ini
 
+# Editor / IDE (optional local-only)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs or temp
+*.log
+npm-debug.log*

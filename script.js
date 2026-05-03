@@ -1,3 +1,17 @@
+/**
+ * Porfolio — client-side behaviour (Jerico G. Sison)
+ *
+ * Responsibilities:
+ *  - Boot: dismiss branded loader after load; stamp current year in footer.
+ *  - Navigation: toggle fullscreen mobile menu; sync aria-expanded; lock body scroll (.nav-open);
+ *    close on Escape, link click, or breakpoint returning to desktop width.
+ *  - Scroll UX: IntersectionObserver adds .is-in to .reveal elements once; progress bar tracks depth.
+ *  - Pointer UX (optional): custom cursor when (any-pointer: fine); eased follower ring;
+ *    highlight interactive targets under cursor; suspend while typing in form controls.
+ *  - Contact: validate fields; build mailto URL; surface status copy for the visitor.
+ *
+ * Dependencies: none (vanilla DOM APIs only). Assumes matching IDs in index.html.
+ */
 (() => {
   const loader = document.getElementById("loader");
   const year = document.getElementById("year");
@@ -5,12 +19,10 @@
   const navLinks = document.getElementById("navLinks");
   const contactForm = document.getElementById("contactForm");
   const formHint = document.getElementById("formHint");
-  const cursorDot = document.getElementById("cursorDot");
-  const cursorRing = document.getElementById("cursorRing");
 
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Loader: keep it visible for a short moment for polish
+  /* --- Loader: brief visibility then remove from DOM to avoid blocking interactions --- */
   const hideLoader = () => {
     if (!loader) return;
     loader.classList.add("is-hidden");
@@ -23,17 +35,20 @@
     window.addEventListener("load", () => window.setTimeout(hideLoader, 450), { once: true });
   }
 
-  // Mobile nav
+  /* --- Primary navigation (mobile overlay + desktop uninterrupted) --- */
   const closeNav = () => {
     if (!navToggle || !navLinks) return;
     navToggle.setAttribute("aria-expanded", "false");
     navLinks.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
   };
 
   navToggle?.addEventListener("click", () => {
     const expanded = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", String(!expanded));
-    navLinks?.classList.toggle("is-open", !expanded);
+    const nextOpen = !expanded;
+    navToggle.setAttribute("aria-expanded", String(nextOpen));
+    navLinks?.classList.toggle("is-open", nextOpen);
+    document.body.classList.toggle("nav-open", nextOpen);
   });
 
   navLinks?.addEventListener("click", (e) => {
@@ -45,63 +60,10 @@
     if (e.key === "Escape") closeNav();
   });
 
-  // Custom cursor + hover highlight (desktop only)
-  const hasFinePointer =
-    window.matchMedia("(hover: hover)").matches && window.matchMedia("(pointer: fine)").matches;
-  if (hasFinePointer && cursorDot && cursorRing) {
-    document.body.classList.add("cursor-active");
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    let ringX = x;
-    let ringY = y;
+  window.matchMedia("(min-width: 981px)").addEventListener("change", (e) => {
+    if (e.matches) closeNav();
+  });
 
-    const showCursor = () => {
-      cursorDot.classList.add("is-visible");
-      cursorRing.classList.add("is-visible");
-    };
-    const hideCursor = () => {
-      cursorDot.classList.remove("is-visible");
-      cursorRing.classList.remove("is-visible");
-    };
-
-    const tick = () => {
-      ringX += (x - ringX) * 0.16;
-      ringY += (y - ringY) * 0.16;
-      cursorDot.style.left = `${x}px`;
-      cursorDot.style.top = `${y}px`;
-      cursorRing.style.left = `${ringX}px`;
-      cursorRing.style.top = `${ringY}px`;
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-
-    document.addEventListener("mousemove", (e) => {
-      x = e.clientX;
-      y = e.clientY;
-      showCursor();
-    });
-    document.addEventListener("mouseenter", showCursor);
-    document.addEventListener("mouseleave", hideCursor);
-
-    const hoverTargets = "a, button, .btn, .projectCard, .card, .chip, .nav__link, h1, h2, h3, p, li";
-    const setHoverState = (active) => {
-      cursorRing.classList.toggle("is-hover", active);
-      cursorDot.classList.toggle("is-hover", active);
-    };
-
-    document.querySelectorAll(hoverTargets).forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        setHoverState(true);
-        el.classList.add("is-highlight");
-      });
-      el.addEventListener("mouseleave", () => {
-        setHoverState(false);
-        el.classList.remove("is-highlight");
-      });
-    });
-  }
-
-  // Reveal on scroll
   const revealEls = Array.from(document.querySelectorAll(".reveal"));
   const io = new IntersectionObserver(
     (entries) => {
@@ -112,46 +74,126 @@
         }
       }
     },
-    { threshold: 0.12 }
+    { threshold: 0.1 }
   );
   revealEls.forEach((el) => io.observe(el));
 
-  // Simple modal system for project previews
-  const openModal = (id) => {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-    modal.hidden = false;
-    document.body.style.overflow = "hidden";
-    const closeBtn = modal.querySelector("[data-close]");
-    (closeBtn instanceof HTMLElement ? closeBtn : null)?.focus?.();
+  /* --- Scroll progress: horizontal scale tied to scrollTop / scrollable height --- */
+  const scrollProgressBar = document.getElementById("scrollProgressBar");
+  const updateScrollProgress = () => {
+    if (!scrollProgressBar) return;
+    const docEl = document.documentElement;
+    const scrollable = docEl.scrollHeight - docEl.clientHeight;
+    const pct = scrollable > 0 ? docEl.scrollTop / scrollable : 0;
+    scrollProgressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, pct))})`;
   };
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
-  const closeModal = (modal) => {
-    modal.hidden = true;
-    document.body.style.overflow = "";
-  };
+  /*
+   * Custom cursor (desktop-style pointers only):
+   * Uses matchMedia("(any-pointer: fine)") so a connected mouse still qualifies on hybrid PCs.
+   * Ring position eases toward the dot via requestAnimationFrame. Hover targets resolved with
+   * elementFromPoint + closest() to avoid brittle per-node listeners.
+   */
+  const cursorDot = document.getElementById("cursorDot");
+  const cursorRing = document.getElementById("cursorRing");
+  const mqAnyFinePointer = window.matchMedia("(any-pointer: fine)");
+  const canUseCursor = () =>
+    mqAnyFinePointer.matches && cursorDot instanceof HTMLElement && cursorRing instanceof HTMLElement;
 
-  document.addEventListener("click", (e) => {
-    const t = e.target;
+  const hoverInterest =
+    "a,button,.btn,.projectCard,.projectShowcase,.card,.experienceCard,.aboutCard,.skillCard,.timeItem,.educationPath,.chip,.nav__link,.nav__toggle,.skip-link,label,input,textarea,select,summary,[role='button'],.contactValue,.footer__top,h1,h2,h3,p,li";
 
-    if (t instanceof HTMLElement && t.matches("[data-modal]")) {
-      const id = t.getAttribute("data-modal");
-      if (id) openModal(id);
-    }
+  if (canUseCursor()) {
+    document.body.classList.add("cursor-active");
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    let ringX = x;
+    let ringY = y;
+    let highlightEl = null;
 
-    const modal = t instanceof HTMLElement ? t.closest(".modal") : null;
-    if (modal && t instanceof HTMLElement && t.hasAttribute("data-close")) {
-      closeModal(modal);
-    }
-  });
+    const showCursor = () => {
+      cursorDot.classList.add("is-visible");
+      cursorRing.classList.add("is-visible");
+    };
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
-    const open = document.querySelector(".modal:not([hidden])");
-    if (open instanceof HTMLElement) closeModal(open);
-  });
+    const setHoverUi = (active) => {
+      cursorRing.classList.toggle("is-hover", active);
+      cursorDot.classList.toggle("is-hover", active);
+    };
 
-  // Contact form: open mailto with prefilled message
+    const updateHighlight = () => {
+      let next = null;
+      try {
+        const under = document.elementFromPoint(x, y);
+        next =
+          under instanceof Element && typeof under.closest === "function"
+            ? under.closest(hoverInterest)
+            : null;
+      } catch {
+        next = null;
+      }
+      setHoverUi(Boolean(next));
+      if (highlightEl && highlightEl !== next) highlightEl.classList.remove("is-highlight");
+      highlightEl = next;
+      highlightEl?.classList.add("is-highlight");
+    };
+
+    const tick = () => {
+      ringX += (x - ringX) * 0.16;
+      ringY += (y - ringY) * 0.16;
+      cursorDot.style.left = `${x}px`;
+      cursorDot.style.top = `${y}px`;
+      cursorRing.style.left = `${ringX}px`;
+      cursorRing.style.top = `${ringY}px`;
+      window.requestAnimationFrame(tick);
+    };
+    window.requestAnimationFrame(tick);
+
+    window.addEventListener(
+      "mousemove",
+      (e) => {
+        x = e.clientX;
+        y = e.clientY;
+        showCursor();
+        updateHighlight();
+      },
+      { passive: true }
+    );
+
+    const disableCustomCursor = () => {
+      document.body.classList.remove("cursor-active");
+      cursorDot.classList.remove("is-visible", "is-hover");
+      cursorRing.classList.remove("is-visible", "is-hover");
+      highlightEl?.classList.remove("is-highlight");
+      highlightEl = null;
+    };
+
+    document.addEventListener("focusin", (e) => {
+      const t = e.target;
+      if (t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement || t instanceof HTMLSelectElement) {
+        disableCustomCursor();
+      }
+    });
+    document.addEventListener("focusout", () => {
+      window.requestAnimationFrame(() => {
+        const a = document.activeElement;
+        if (!(a instanceof HTMLInputElement || a instanceof HTMLTextAreaElement || a instanceof HTMLSelectElement)) {
+          if (canUseCursor()) document.body.classList.add("cursor-active");
+        }
+      });
+    });
+
+    const onMqChange = () => {
+      if (!canUseCursor()) disableCustomCursor();
+      else document.body.classList.add("cursor-active");
+    };
+    mqAnyFinePointer.addEventListener("change", onMqChange);
+  }
+
+  /* --- Contact: mailto hand-off (no server endpoint in static hosting) --- */
   contactForm?.addEventListener("submit", (e) => {
     e.preventDefault();
     if (!(contactForm instanceof HTMLFormElement)) return;
@@ -166,8 +208,8 @@
       return;
     }
 
-    const fullSubject = `${subject} — from ${name}`;
-    const body = `${message}\n\n---\nFrom: ${name}\nSent via portfolio site`;
+    const fullSubject = `${subject} (from ${name})`;
+    const body = `${message}\n\n---\nFrom: ${name}\nSent via portfolio`;
     const mailto = `mailto:jericosison22@gmail.com?subject=${encodeURIComponent(
       fullSubject
     )}&body=${encodeURIComponent(body)}`;
@@ -179,4 +221,3 @@
     }, 1500);
   });
 })();
-
