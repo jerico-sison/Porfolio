@@ -1,5 +1,5 @@
 /**
- * Porfolio — client-side behaviour (Jerico G. Sison)
+ * Porfolio: client-side behaviour (Jerico G. Sison)
  *
  * Responsibilities:
  *  - Boot: dismiss branded loader after load; stamp current year in footer.

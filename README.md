@@ -1,6 +1,6 @@
-﻿# Jerico G. Sison — Portfolio Website
+﻿# Jerico G. Sison: Portfolio Website
 
-A **static, production-style portfolio** for an early-career full-stack web developer. The site is built with **semantic HTML5**, **modern CSS** (custom properties, grid, flexbox), and **vanilla JavaScript**—no frameworks or build step required.
+A **static, production-style portfolio** for an early-career full-stack web developer. The site is built with **semantic HTML5**, **modern CSS** (custom properties, grid, flexbox), and **vanilla JavaScript**; no frameworks or build step required.
 
 It highlights academic and capstone work (including the **PSAU admission system**), technical skills, experience, and contact pathways suitable for recruiters and collaborators.
 
@@ -14,7 +14,7 @@ It highlights academic and capstone work (including the **PSAU admission system*
 | `styles.css` | Global design tokens, layout, components, responsive rules, motion, and cursor styling |
 | `script.js` | Loader, mobile navigation, scroll reveals, progress indicator, custom cursor, contact form handler |
 | `img/` | Optimised raster assets (e.g. profile photograph) |
-| `LICENSE` | MIT License — see terms below |
+| `LICENSE` | MIT License: see terms below |
 | `README.md` | This documentation |
 | `CONTRIBUTING.md` | Expectations for feedback and forks |
 

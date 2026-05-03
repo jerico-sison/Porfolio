@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  Porfolio — single-page résumé site for Jerico G. Sison.
+  Porfolio: single-page résumé site for Jerico G. Sison.
   Semantic landmarks: header #top (navigation), main#main (sections), footer.
   Progressive enhancement: core content works without JS; script enhances loader, nav, reveals, cursor, mailto form.
 -->
@@ -127,7 +127,7 @@
         </div>
       </section>
 
-      <!-- Section: About — background cards, tech stack wrapper -->
+      <!-- Section: About: background cards, tech stack wrapper -->
       <section id="about" class="section aboutSection">
         <div class="aboutSection__bg" aria-hidden="true"></div>
         <div class="container aboutSection__inner">
@@ -228,7 +228,7 @@
         </div>
       </section>
 
-      <!-- Section: Skills — grouped competency cards with self-assessed meter bars -->
+      <!-- Section: Skills: grouped competency cards with self-assessed meter bars -->
       <section id="skills" class="section section--alt">
         <div class="container">
           <div class="sectionHeader reveal">
@@ -312,7 +312,7 @@
         </div>
       </section>
 
-      <!-- Section: Projects — flagship PSAU admission narrative + supporting portfolio card -->
+      <!-- Section: Projects: flagship PSAU admission narrative + supporting portfolio card -->
       <section id="projects" class="section projectsSection">
         <div class="projectsSection__bg" aria-hidden="true"></div>
         <div class="container projectsSection__inner">
@@ -347,7 +347,7 @@
               </header>
               <p class="projectShowcase__desc">
                 Handles the <strong>full admission lifecycle</strong>: registration, application submission, verification,
-                exam scheduling, scoring, course assignment, enrollment scheduling, and completion. Implemented in PHP with server-rendered pages and JavaScript modules; MySQL stores records; Firebase-hosted email powers OTP (<strong>email-based</strong> flows in current code, not SMS); AI assistance includes chatbot and recommendation proxies under <code>public/ai/</code>.
+                exam scheduling, scoring, course assignment, enrollment scheduling, and completion. Implemented in PHP with server-rendered pages and JavaScript modules; MySQL stores records; Firebase-hosted email powers OTP (<strong>email-based</strong> flows in current code, not SMS); AI features include chatbot, recommendation, and OCR validation flows under <code>public/ai/</code>.
               </p>
 
               <div class="projectPanels">
@@ -382,7 +382,10 @@
                     <strong>Reliable applicant verification:</strong> email OTP endpoints (<code>send_email_otp.php</code>, admin equivalents), OTP expiry and rate-limit helpers in shared includes, plus hashed passwords and session auth.
                   </li>
                   <li>
-                    <strong>Integrating AI features safely:</strong> chatbot/recommendation traffic routed through proxy endpoints instead of exposing backend logic directly to the browser.
+                    <strong>Integrating AI features safely:</strong> chatbot, recommendation, and OCR validation requests routed through proxy endpoints instead of exposing backend logic directly to the browser.
+                  </li>
+                  <li>
+                    <strong>OCR-style grade validation:</strong> automated checks on uploaded report cards, rejecting blurry or unreadable scans, flagging any subject below 74, confirming the document looks like a legitimate grade copy (no missing or blank entries), and requiring a complete 2nd-semester record. Submissions that fail these rules are not accepted.
                   </li>
                 </ul>
               </div>
@@ -433,7 +436,7 @@
         </div>
       </section>
 
-      <!-- Section: Experience & education — shipped work summary, coursework, timeline -->
+      <!-- Section: Experience & education: shipped work summary, coursework, timeline -->
       <section id="experience" class="section section--alt experienceSection">
         <div class="experienceSection__bg" aria-hidden="true"></div>
         <div class="container experienceSection__inner">
@@ -484,7 +487,6 @@
                   </p>
                 </div>
               </div>
-              <p class="experienceFineprint">Certifications: add here when completed (e.g. online courses, seminars).</p>
             </article>
 
             <article class="experienceCard reveal">
@@ -554,7 +556,7 @@
         </div>
       </section>
 
-      <!-- Section: Contact — direct channels + mailto-assisted message form -->
+      <!-- Section: Contact: direct channels + mailto-assisted message form -->
       <section id="contact" class="section">
         <div class="container">
           <div class="sectionHeader reveal">
@@ -586,7 +588,6 @@
                   jerico-sison.github.io/Porfolio
                 </a>
               </div>
-              <p class="fineprint">LinkedIn can be added here when you publish a profile URL.</p>
             </div>
 
             <form class="card reveal contactForm" id="contactForm">

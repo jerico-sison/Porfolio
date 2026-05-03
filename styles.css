@@ -1,12 +1,12 @@
 /**
- * Porfolio — global stylesheet (Jerico G. Sison)
+ * Porfolio: global stylesheet (Jerico G. Sison)
  * ---------------------------------------------------------------------------
  * Structure:
- *   1. Design tokens (:root) — colours, radii, shadows reused across components.
- *   2. Base / reset — page background, typography, scrollbars, cursor-hide rules.
- *   3. UI regions — loader, sticky top bar, hero, sections, cards, projects, contact.
- *   4. Motion — scroll reveals, optional hover-driven border keyframes, reduced-motion overrides.
- *   5. Responsive — breakpoints (980px / 640px); fullscreen mobile navigation overlay.
+ *   1. Design tokens (:root): colours, radii, shadows reused across components.
+ *   2. Base / reset: page background, typography, scrollbars, cursor-hide rules.
+ *   3. UI regions: loader, sticky top bar, hero, sections, cards, projects, contact.
+ *   4. Motion: scroll reveals, optional hover-driven border keyframes, reduced-motion overrides.
+ *   5. Responsive: breakpoints (980px / 640px); fullscreen mobile navigation overlay.
  *
  * The mobile menu (≤980px) uses position:fixed inset 0. The sticky header stays above the
  * overlay (z-index) so the brand and toggle remain visible; body.nav-open locks scroll.
@@ -73,7 +73,7 @@ body{
   touch-action: pan-y;
 }
 
-/* Fixed thin bar at top of viewport — scales horizontally with document scroll depth */
+/* Fixed thin bar at top of viewport: scales horizontally with document scroll depth */
 .scrollProgress{
   position:fixed;
   top:0;
@@ -146,7 +146,7 @@ body.cursor-active select{
 }
 .skip-link:focus{left:12px}
 
-/* Initial splash overlay — removed via JS after window load for a polished first paint */
+/* Initial splash overlay: removed via JS after window load for a polished first paint */
 .loader{
   position:fixed;inset:0;
   display:grid;place-items:center;
@@ -182,12 +182,13 @@ body.cursor-active select{
   100%{transform:scale(1);filter:saturate(1)}
 }
 
-/* Sticky site header — brand + primary navigation (desktop inline links; mobile toggle) */
+/* Sticky site header: brand + primary navigation (desktop inline links; mobile toggle) */
 .topbar{
-  position:sticky;top:0;z-index:1000;
+  position:fixed;left:0;right:0;top:0;z-index:1000;
   background:rgba(7,10,18,.82);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
+.topbar + main{padding-top:68px}
 .topbar__inner{
   display:flex;align-items:center;justify-content:space-between;
   height:68px;
@@ -251,7 +252,7 @@ body.cursor-active select{
   color:var(--text);
 }
 
-/* Hero region — headline, CTAs, meta cards, portrait card, decorative blobs */
+/* Hero region: headline, CTAs, meta cards, portrait card, decorative blobs */
 .hero{position:relative;padding:72px 0 36px}
 .hero__inner{
   display:grid;
@@ -500,7 +501,7 @@ body.cursor-active select{
 .card__text--tight{margin-top:12px}
 .card--inline{margin-top:14px}
 
-/* About — bio grid, tech wrapper, strip chips */
+/* About: bio grid, tech wrapper, strip chips */
 .aboutSection{
   position:relative;
   overflow:hidden;
@@ -779,7 +780,7 @@ body.cursor-active select{
   margin:0 0 14px;font-size:.92rem;line-height:1.58;
   color:rgba(255,255,255,.62);
 }
-/* Self-assessed skill meters — bar width via inline custom property --w on each span */
+/* Self-assessed skill meters: bar width via inline custom property --w on each span */
 .meters{display:flex;flex-direction:column;gap:11px}
 .meter__label{
   display:flex;justify-content:space-between;align-items:center;
@@ -979,8 +980,8 @@ body.cursor-active select{
 }
 
 .educationPath{
-  margin-top:26px;
-  padding:20px 20px 18px;
+  margin-top:32px;
+  padding:22px 22px 20px;
   border-radius:calc(var(--radius) + 2px);
   background:linear-gradient(165deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
   border:1px solid rgba(255,255,255,.1);
@@ -995,7 +996,7 @@ body.cursor-active select{
     0 0 0 1px rgba(124,92,255,.12),
     0 0 22px rgba(124,92,255,.04);
 }
-.educationPath__head{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.educationPath__head{margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
 .educationPath__eyebrow{
   margin:0 0 5px;
   font-size:.72rem;
@@ -1012,12 +1013,12 @@ body.cursor-active select{
   line-height:1.5;
 }
 
-/* Timeline — vertical rail and school / role rows inside education path */
+/* Timeline: vertical rail and school / role rows inside education path */
 .timeline{
   position:relative;
   padding-left:18px;
   display:grid;
-  gap:14px;
+  gap:17px;
 }
 .timeline::before{
   content:"";
@@ -1032,7 +1033,7 @@ body.cursor-active select{
 
 .timeItem{
   position:relative;
-  padding:16px 17px;
+  padding:17px 18px 18px;
   border-radius: var(--radius);
   background: rgba(255,255,255,.045);
   border:1px solid rgba(255,255,255,.10);
@@ -1081,10 +1082,10 @@ body.cursor-active select{
   color:rgba(255,255,255,.72);
   font-weight:800;
 }
-.timeItem__meta{margin-top:8px;color:rgba(255,255,255,.68);line-height:1.65;font-size:.92rem}
+.timeItem__meta{margin-top:10px;color:rgba(255,255,255,.68);line-height:1.65;font-size:.92rem}
 .timeline--spaced{margin-top:0}
 
-/* Projects — featured showcase layout, secondary cards, tags, GitHub actions */
+/* Projects: featured showcase layout, secondary cards, tags, GitHub actions */
 .projectsSection{
   position:relative;
   overflow:hidden;
@@ -1416,7 +1417,7 @@ body.cursor-active select{
 .projectCard__stack{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
 .projectCard__actions{margin-top:auto;padding-top:16px;display:flex;gap:10px;flex-wrap:wrap}
 
-/* Custom cursor layers — gradient dot + trailing ring (fine pointers only; see script.js) */
+/* Custom cursor layers: gradient dot + trailing ring (fine pointers only; see script.js) */
 .cursor-dot,
 .cursor-ring{
   position:fixed;
@@ -1437,7 +1438,7 @@ body.cursor-active select{
     background .2s ease;
 }
 
-/* Cursor dot — radial cyan-to-violet core with soft outer glow */
+/* Cursor dot: radial cyan-to-violet core with soft outer glow */
 .cursor-dot{
   width:14px;
   height:14px;
@@ -1455,7 +1456,7 @@ body.cursor-active select{
     0 0 20px rgba(124,92,255,.38);
 }
 
-/* Cursor ring — transparent fill, light stroke, slight backdrop blur */
+/* Cursor ring: transparent fill, light stroke, slight backdrop blur */
 .cursor-ring{
   width:30px;
   height:30px;
@@ -1494,7 +1495,7 @@ body.cursor-active select{
   transition:color .2s ease, text-shadow .2s ease, border-color .2s ease, background .2s ease;
 }
 
-/* Contact — definition rows, form fields, submit footer layout */
+/* Contact: definition rows, form fields, submit footer layout */
 .contactRow{
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;
@@ -1560,7 +1561,7 @@ body.cursor-active select{
   color:rgba(255,255,255,.54);
 }
 
-/* Site footer — copyright and back-to-top */
+/* Site footer: copyright and back-to-top */
 .footer{
   padding:28px 0 40px;
   border-top:1px solid rgba(255,255,255,.08);
@@ -1612,7 +1613,7 @@ body.cursor-active select{
 .modal__text a:hover{color:#d9f8ff}
 @keyframes pop{from{transform:translateY(8px);opacity:.7}to{transform:translateY(0);opacity:1}}
 
-/* Scroll reveal — quiet fade-up (no blur / scale / stagger) */
+/* Scroll reveal: quiet fade-up (no blur / scale / stagger) */
 .reveal{
   opacity:0;
   transform:translateY(12px);
@@ -1642,7 +1643,7 @@ body.cursor-active select{
     background-color .35s ease;
 }
 
-/* Hover-only border/glow keyframes — violet ↔ cyan; gated by hover:hover + reduced-motion prefs */
+/* Hover-only border/glow keyframes: violet ↔ cyan; gated by hover:hover + reduced-motion prefs */
 @keyframes surfaceBorderGlow{
   0%,100%{
     transform:translateY(-3px);
@@ -1763,7 +1764,7 @@ body.cursor-active select{
   .projectsFootnote:hover{animation:surfaceBorderGlowSoft 6s ease-in-out infinite}
 }
 
-/* Responsive breakpoints — layout collapse and mobile-specific navigation */
+/* Responsive breakpoints: layout collapse and mobile-specific navigation */
 @media (max-width: 980px){
   .container{width:min(1120px, calc(100% - 28px))}
   .hero__inner{grid-template-columns: 1fr;gap:26px}
@@ -1795,7 +1796,7 @@ body.cursor-active select{
   }
 
   /*
-   * Fullscreen navigation drawer — fixed viewport coverage, opaque gradient background.
+   * Fullscreen navigation drawer: fixed viewport coverage, opaque gradient background.
    * Stacking: overlay below .brand and .nav__toggle so logo and close control stay interactive.
    */
   .nav__links{
@@ -1864,6 +1865,7 @@ body.cursor-active select{
 
 @media (max-width: 640px){
   .topbar__inner{height:62px}
+  .topbar + main{padding-top:62px}
   .nav__links{
     padding-top:calc(env(safe-area-inset-top, 0px) + 82px);
   }
@@ -1907,7 +1909,7 @@ body.cursor-active select{
     padding:14px;
     border-radius:16px;
   }
-  .educationPath{padding:16px}
+  .educationPath{padding:19px 18px 20px}
   .experienceCard__mark{width:40px;height:40px;font-size:.74rem}
   .timeItem__row{flex-wrap:wrap}
   .aboutTechWrap__inner{padding:16px}
@@ -1988,7 +1990,7 @@ body.cursor-active select{
     font-size:.92rem;
   }
 
-  /* Loader card — tighter padding and type scale on narrow screens */
+  /* Loader card: tighter padding and type scale on narrow screens */
   .loader__card{
     width: calc(100% - 24px);
     padding:14px;
