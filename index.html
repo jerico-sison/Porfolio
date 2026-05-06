@@ -1,0 +1,633 @@
+<!doctype html>
+<!--
+  Porfolio: single-page résumé site for Jerico G. Sison.
+  Semantic landmarks: header #top (navigation), main#main (sections), footer.
+  Progressive enhancement: core content works without JS; script enhances loader, nav, reveals, cursor, mailto form.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Jerico G. Sison: Full-stack web developer portfolio. AI-Assisted Admission System at PSAU, PHP, MySQL, JavaScript."
+    />
+    <title>Jerico G. Sison | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="scrollProgress" id="scrollProgress" aria-hidden="true">
+      <span class="scrollProgress__bar" id="scrollProgressBar"></span>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <div id="loader" class="loader" aria-hidden="true">
+      <div class="loader__card">
+        <div class="loader__mark" aria-hidden="true"></div>
+        <div class="loader__text">
+          <div class="loader__title">Loading portfolio</div>
+          <div class="loader__sub">Jerico G. Sison</div>
+        </div>
+      </div>
+    </div>
+
+    <header class="topbar" id="top">
+      <div class="container topbar__inner">
+        <a class="brand" href="#top" aria-label="Go to top">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text">J.G. Sison</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+            <span class="nav__toggleLines" aria-hidden="true"></span>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+          <div class="nav__links" id="navLinks">
+            <a class="nav__link" href="#about">About</a>
+            <a class="nav__link" href="#skills">Skills</a>
+            <a class="nav__link" href="#projects">Projects</a>
+            <a class="nav__link" href="#experience">Experience</a>
+            <a class="nav__link" href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 1. Hero -->
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__copy reveal">
+            <p class="hero__role">Full-stack web developer</p>
+            <h1 class="hero__title">Jerico G. <span class="accent">Sison</span></h1>
+            <p class="hero__tagline">
+              I build reliable web applications with clean PHP backends, organized databases, and thoughtful interfaces, so users and admins get workflows they can trust.
+            </p>
+            <p class="hero__lead">
+              BS Information Technology (PSAU, expected 2026). Based in Magalang, Pampanga.
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#projects">View projects</a>
+              <a class="btn btn--ghost" href="#contact">Contact me</a>
+            </div>
+
+            <div class="hero__meta">
+              <div class="metaCard">
+                <div class="metaCard__kicker">Open to</div>
+                <div class="metaCard__value">Entry-level dev &amp; IT roles</div>
+              </div>
+              <div class="metaCard">
+                <div class="metaCard__kicker">Focus</div>
+                <div class="metaCard__value">Web apps • Documentation • QA basics</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__visual reveal">
+            <div class="avatarCard">
+              <div class="avatarCard__glow" aria-hidden="true"></div>
+              <img class="avatar" src="./img/me.jpg" alt="Professional photo of Jerico G. Sison" />
+              <div class="avatarCard__badge">
+                <div class="badgeDot" aria-hidden="true"></div>
+                <div>
+                  <div class="badgeTitle">Jerico G. Sison</div>
+                  <div class="badgeSub">BSIT • PSAU</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="floatGrid" aria-hidden="true">
+              <div class="floatCard">PHP</div>
+              <div class="floatCard">MySQL</div>
+              <div class="floatCard">JavaScript</div>
+              <div class="floatCard">HTML/CSS</div>
+              <div class="floatCard">GitHub</div>
+              <div class="floatCard">Firebase</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__bg" aria-hidden="true">
+          <div class="blob blob--1"></div>
+          <div class="blob blob--2"></div>
+          <div class="noise"></div>
+        </div>
+      </section>
+
+      <!-- Section: About: background cards, tech stack wrapper -->
+      <section id="about" class="section aboutSection">
+        <div class="aboutSection__bg" aria-hidden="true"></div>
+        <div class="container aboutSection__inner">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">About me</h2>
+            <p class="sectionHeader__subtitle">
+              Concise background and how I approach problems, not just a skill checklist.
+            </p>
+          </div>
+
+          <div class="aboutStrip reveal" role="presentation">
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon" aria-hidden="true"></span>
+              <span class="aboutStrip__text"><strong>PSAU</strong> · BS Information Technology</span>
+            </div>
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon aboutStrip__icon--cyan" aria-hidden="true"></span>
+              <span class="aboutStrip__text">Full-stack web &amp; academic systems</span>
+            </div>
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon aboutStrip__icon--blend" aria-hidden="true"></span>
+              <span class="aboutStrip__text">Magalang, Pampanga</span>
+            </div>
+          </div>
+
+          <div class="aboutGrid">
+            <article class="aboutCard reveal">
+              <header class="aboutCard__head">
+                <div class="aboutCard__mark" aria-hidden="true">01</div>
+                <div class="aboutCard__headText">
+                  <p class="aboutCard__eyebrow">Where I’m coming from</p>
+                  <h3 class="aboutCard__title">Background</h3>
+                </div>
+              </header>
+              <p class="aboutCard__body">
+                I’m completing my BSIT at Pampanga State Agricultural University. Most of my hands-on experience comes from
+                building and maintaining <strong>real-world academic systems</strong>, especially our AI-assisted admission platform where applicants,
+                staff, and data need to stay aligned from signup through enrollment.
+              </p>
+            </article>
+
+            <article class="aboutCard reveal">
+              <header class="aboutCard__head">
+                <div class="aboutCard__mark" aria-hidden="true">02</div>
+                <div class="aboutCard__headText">
+                  <p class="aboutCard__eyebrow">What I build &amp; how</p>
+                  <h3 class="aboutCard__title">Specialization &amp; approach</h3>
+                </div>
+              </header>
+              <p class="aboutCard__body">
+                Full-stack web development with <strong>PHP, MySQL, and JavaScript</strong>; deployment-aware configuration (e.g. environment-driven DB settings); integrations such as Firebase-hosted email for OTP flows.
+              </p>
+              <p class="aboutCard__subLabel">How I tackle a problem</p>
+              <ul class="aboutFlow">
+                <li>Clarify requirements and document assumptions early.</li>
+                <li>Split work into modules: public, admin, and shared includes.</li>
+                <li>Test critical paths: authentication, OTP, and submissions.</li>
+                <li>Iterate from feedback once the foundation is stable.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="aboutTechWrap reveal">
+            <div class="aboutTechWrap__inner">
+              <div class="aboutTechWrap__top">
+                <div>
+                  <p class="aboutTechWrap__eyebrow">Toolbox</p>
+                  <h3 class="aboutTechWrap__title">Core tech stack</h3>
+                </div>
+                <p class="aboutTechWrap__hint">Grouped so it’s easy to scan; same tools behind the capstone and this portfolio.</p>
+              </div>
+              <div class="aboutTechGroups">
+                <div class="aboutTechGroup">
+                  <span class="aboutTechGroup__label">Languages &amp; UI</span>
+                  <div class="chips chips--dense chips--about">
+                    <span class="chip chip--about">PHP 7.4+</span>
+                    <span class="chip chip--about">HTML / CSS / JavaScript</span>
+                    <span class="chip chip--about">Java &amp; Python (foundation)</span>
+                  </div>
+                </div>
+                <div class="aboutTechGroup">
+                  <span class="aboutTechGroup__label">Data &amp; integrations</span>
+                  <div class="chips chips--dense chips--about">
+                    <span class="chip chip--about">MySQL</span>
+                    <span class="chip chip--about">Firebase (email)</span>
+                    <span class="chip chip--about">Render basics</span>
+                  </div>
+                </div>
+                <div class="aboutTechGroup">
+                  <span class="aboutTechGroup__label">Workflow</span>
+                  <div class="chips chips--dense chips--about">
+                    <span class="chip chip--about">Git &amp; GitHub</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Skills: grouped competency cards with self-assessed meter bars -->
+      <section id="skills" class="section section--alt">
+        <div class="container">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Skills</h2>
+            <p class="sectionHeader__subtitle">
+              Grouped by area with honest proficiency levels (self-assessed for early-career work).
+            </p>
+          </div>
+
+          <div class="skillsGrid">
+            <div class="skillCard reveal">
+              <div class="skillCard__top">
+                <div class="skillIcon" aria-hidden="true">FE</div>
+                <h3 class="skillCard__title">Frontend</h3>
+              </div>
+              <p class="skillCard__text">Responsive layouts, server-rendered PHP templates, and interactive UI behavior.</p>
+              <div class="meters">
+                <div class="meter">
+                  <div class="meter__label">HTML</div>
+                  <div class="meter__bar"><span style="--w: 85%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">CSS</div>
+                  <div class="meter__bar"><span style="--w: 78%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">JavaScript</div>
+                  <div class="meter__bar"><span style="--w: 68%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skillCard reveal">
+              <div class="skillCard__top">
+                <div class="skillIcon" aria-hidden="true">BE</div>
+                <h3 class="skillCard__title">Backend &amp; database</h3>
+              </div>
+              <p class="skillCard__text">PHP apps with sessions, validation, and MySQL, aligned with capstone-style projects.</p>
+              <div class="meters">
+                <div class="meter">
+                  <div class="meter__label">PHP</div>
+                  <div class="meter__bar"><span style="--w: 80%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">MySQL</div>
+                  <div class="meter__bar"><span style="--w: 74%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">Firebase (email / integration)</div>
+                  <div class="meter__bar"><span style="--w: 58%"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skillCard reveal">
+              <div class="skillCard__top">
+                <div class="skillIcon" aria-hidden="true">+</div>
+                <h3 class="skillCard__title">Tools, languages &amp; office</h3>
+              </div>
+              <p class="skillCard__text">Workflow tooling plus foundational coursework languages and Microsoft Office.</p>
+              <div class="meters">
+                <div class="meter">
+                  <div class="meter__label">Git / GitHub</div>
+                  <div class="meter__bar"><span style="--w: 72%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">Testing &amp; debugging</div>
+                  <div class="meter__bar"><span style="--w: 64%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">Java &amp; Python (course level)</div>
+                  <div class="meter__bar"><span style="--w: 48%"></span></div>
+                </div>
+                <div class="meter">
+                  <div class="meter__label">Word / Excel / PowerPoint</div>
+                  <div class="meter__bar"><span style="--w: 70%"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Projects: flagship PSAU admission narrative + supporting portfolio card -->
+      <section id="projects" class="section projectsSection">
+        <div class="projectsSection__bg" aria-hidden="true"></div>
+        <div class="container projectsSection__inner">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Projects</h2>
+            <p class="sectionHeader__subtitle">
+              Depth matters most: the flagship project reflects architecture gathered directly from the repository README and codebase layout.
+            </p>
+          </div>
+
+          <div class="aboutStrip projectsStrip reveal" role="presentation">
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon" aria-hidden="true"></span>
+              <span class="aboutStrip__text"><strong>Featured</strong> · PSAU admission system</span>
+            </div>
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon aboutStrip__icon--cyan" aria-hidden="true"></span>
+              <span class="aboutStrip__text">PHP · MySQL · Firebase email · JS</span>
+            </div>
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon aboutStrip__icon--blend" aria-hidden="true"></span>
+              <span class="aboutStrip__text">Applicant &amp; admin modules</span>
+            </div>
+          </div>
+
+          <article class="projectShowcase projectShowcase--single projectShowcase--featured reveal">
+            <div class="projectShowcase__body">
+              <header class="projectShowcase__head">
+                <p class="projectShowcase__eyebrow">Flagship build</p>
+                <span class="projectTag projectTag--capstone">Capstone</span>
+                <h3 class="projectShowcase__title">AI-Assisted Admission System at PSAU</h3>
+              </header>
+              <p class="projectShowcase__desc">
+                Handles the <strong>full admission lifecycle</strong>: registration, application submission, verification,
+                exam scheduling, scoring, course assignment, enrollment scheduling, and completion. Implemented in PHP with server-rendered pages and JavaScript modules; MySQL stores records; Firebase-hosted email powers OTP (<strong>email-based</strong> flows in current code, not SMS); AI features include chatbot, recommendation, and OCR validation flows under <code>public/ai/</code>.
+              </p>
+
+              <div class="projectPanels">
+                <div class="projectPanel">
+                  <h4 class="projectShowcase__h">My role</h4>
+                  <p class="projectShowcase__p">
+                    Developer on the capstone, contributing across applicant-facing (<code>public/</code>) and administration (<code>admin/</code>) areas,
+                    shared PHP utilities (<code>includes/</code>), Firebase email wiring (<code>firebase/</code>), and alignment with deployment tooling (Render, Docker-related configs).
+                  </p>
+                </div>
+                <div class="projectPanel projectPanel--stack">
+                  <h4 class="projectShowcase__h">Tech stack</h4>
+                  <div class="chips chips--dense chips--project">
+                    <span class="chip chip--soft chip--project">PHP ≥7.4</span>
+                    <span class="chip chip--soft chip--project">MySQL</span>
+                    <span class="chip chip--soft chip--project">JavaScript</span>
+                    <span class="chip chip--soft chip--project">HTML/CSS</span>
+                    <span class="chip chip--soft chip--project">Firebase email</span>
+                    <span class="chip chip--soft chip--project">reCAPTCHA</span>
+                    <span class="chip chip--soft chip--project">Composer</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="projectChallenge">
+                <h4 class="projectChallenge__title">Challenges &amp; how they were addressed</h4>
+                <ul class="projectChallenge__list">
+                  <li>
+                    <strong>Secure configuration across environments:</strong> database settings driven by environment variables (<code>DB_*</code>) with sensible separation from production secrets (per repo deployment docs).
+                  </li>
+                  <li>
+                    <strong>Reliable applicant verification:</strong> email OTP endpoints (<code>send_email_otp.php</code>, admin equivalents), OTP expiry and rate-limit helpers in shared includes, plus hashed passwords and session auth.
+                  </li>
+                  <li>
+                    <strong>Integrating AI features safely:</strong> chatbot, recommendation, and OCR validation requests routed through proxy endpoints instead of exposing backend logic directly to the browser.
+                  </li>
+                  <li>
+                    <strong>OCR-style grade validation:</strong> automated checks on uploaded report cards, rejecting blurry or unreadable scans, flagging any subject below 74, confirming the document looks like a legitimate grade copy (no missing or blank entries), and requiring a complete 2nd-semester record. Submissions that fail these rules are not accepted.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="projectShowcase__actions">
+                <a class="btn btn--tiny btn--projectGh" href="https://github.com/jerico-sison/psau-admission-system2" target="_blank" rel="noreferrer">View on GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projectCard projectCard--secondary projectCard--portfolio reveal">
+            <div class="projectGlow" aria-hidden="true"></div>
+            <div class="projectCard__shell">
+              <header class="projectCard__head">
+                <p class="projectCard__eyebrow">Supporting project</p>
+                <span class="projectTag projectTag--personal">Personal site</span>
+                <h3 class="projectCard__title projectCard__title--portfolio">Portfolio website (this site)</h3>
+              </header>
+              <p class="projectCard__text">
+                Responsive portfolio to present projects and contact details, hosted on GitHub Pages with HTML, CSS, and vanilla JavaScript only.
+              </p>
+              <div class="projectPanels projectPanels--compact">
+                <div class="projectPanel projectPanel--muted">
+                  <h4 class="projectShowcase__h">My role</h4>
+                  <p class="projectShowcase__p">Sole designer &amp; developer.</p>
+                </div>
+                <div class="projectPanel projectPanel--muted">
+                  <h4 class="projectShowcase__h">Challenge</h4>
+                  <p class="projectShowcase__p">
+                    Keeping layout readable on mobile while preserving hierarchy, solved with component-style sections and responsive grids.
+                  </p>
+                </div>
+              </div>
+              <div class="projectCard__stack projectCard__stack--project">
+                <span class="chip chip--soft chip--project">HTML</span>
+                <span class="chip chip--soft chip--project">CSS</span>
+                <span class="chip chip--soft chip--project">JavaScript</span>
+              </div>
+            </div>
+            <div class="projectCard__actions">
+              <a class="btn btn--tiny btn--projectGh" href="https://github.com/jerico-sison/Porfolio" target="_blank" rel="noreferrer">View on GitHub</a>
+            </div>
+          </article>
+
+          <p class="projectsFootnote reveal">
+            Additional coursework repositories may appear on my GitHub. Above are the strongest public artifacts tied to production-style workflows.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section: Experience & education: shipped work summary, coursework, timeline -->
+      <section id="experience" class="section section--alt experienceSection">
+        <div class="experienceSection__bg" aria-hidden="true"></div>
+        <div class="container experienceSection__inner">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Experience &amp; education</h2>
+            <p class="sectionHeader__subtitle">
+              Hands-on builds from capstone work plus formal training, organized so recruiters can scan roles, coursework, and school history quickly.
+            </p>
+          </div>
+
+          <div class="aboutStrip experienceStrip reveal" role="presentation">
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon" aria-hidden="true"></span>
+              <span class="aboutStrip__text"><strong>BSIT</strong> · PSAU · Expected 2026</span>
+            </div>
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon aboutStrip__icon--cyan" aria-hidden="true"></span>
+              <span class="aboutStrip__text">Full-stack capstone &amp; GitHub projects</span>
+            </div>
+            <div class="aboutStrip__item">
+              <span class="aboutStrip__icon aboutStrip__icon--blend" aria-hidden="true"></span>
+              <span class="aboutStrip__text">Magalang, Pampanga</span>
+            </div>
+          </div>
+
+          <div class="experienceGrid">
+            <article class="experienceCard reveal">
+              <header class="experienceCard__head">
+                <div class="experienceCard__mark" aria-hidden="true">EX</div>
+                <div class="experienceCard__headText">
+                  <p class="experienceCard__eyebrow">What I’ve shipped</p>
+                  <h3 class="experienceCard__title">Experience</h3>
+                </div>
+              </header>
+              <div class="expStack">
+                <div class="expBlock">
+                  <span class="expBlock__tag">Capstone</span>
+                  <p class="expBlock__lead"><strong>AI-Assisted Admission System at PSAU</strong></p>
+                  <p class="expBlock__detail">
+                    Full-stack development: applicant/admin flows, integrations (Firebase email OTP), AI proxy endpoints, deployment-oriented configuration.
+                  </p>
+                </div>
+                <div class="expBlock">
+                  <span class="expBlock__tag">Academic</span>
+                  <p class="expBlock__lead"><strong>Course projects</strong></p>
+                  <p class="expBlock__detail">
+                    End-to-end builds emphasizing documentation, testing basics, and GitHub-based revision history.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="experienceCard reveal">
+              <header class="experienceCard__head">
+                <div class="experienceCard__mark experienceCard__mark--cyan" aria-hidden="true">CW</div>
+                <div class="experienceCard__headText">
+                  <p class="experienceCard__eyebrow">From the curriculum</p>
+                  <h3 class="experienceCard__title">Relevant coursework</h3>
+                </div>
+              </header>
+              <ul class="courseList">
+                <li>
+                  <span class="courseList__text">Web systems &amp; database-backed applications</span>
+                </li>
+                <li>
+                  <span class="courseList__text">Software engineering &amp; systems analysis fundamentals</span>
+                </li>
+                <li>
+                  <span class="courseList__text">Programming (Java, Python, PHP)</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="educationPath reveal">
+            <div class="educationPath__head">
+              <p class="educationPath__eyebrow">Timeline</p>
+              <h3 class="educationPath__title">Education path</h3>
+              <p class="educationPath__hint">Schools attended, newest first.</p>
+            </div>
+            <div class="timeline timeline--spaced timeline--experience">
+              <article class="timeItem timeItem--featured">
+                <div class="timeItem__dot" aria-hidden="true"></div>
+                <div class="timeItem__content">
+                  <div class="timeItem__row">
+                    <h3 class="timeItem__title">Pampanga State Agricultural University</h3>
+                    <span class="timeItem__pill">Expected 2026</span>
+                  </div>
+                  <div class="timeItem__meta">
+                    BS Information Technology<br />
+                    San Agustin, Magalang, Pampanga
+                  </div>
+                </div>
+              </article>
+              <article class="timeItem">
+                <div class="timeItem__dot" aria-hidden="true"></div>
+                <div class="timeItem__content">
+                  <div class="timeItem__row">
+                    <h3 class="timeItem__title">Ayala High School</h3>
+                    <span class="timeItem__pill timeItem__pill--muted">2019</span>
+                  </div>
+                  <div class="timeItem__meta">Ayala, Magalang, Pampanga</div>
+                </div>
+              </article>
+              <article class="timeItem">
+                <div class="timeItem__dot" aria-hidden="true"></div>
+                <div class="timeItem__content">
+                  <div class="timeItem__row">
+                    <h3 class="timeItem__title">Sto. Niño Elementary School</h3>
+                    <span class="timeItem__pill timeItem__pill--muted">2013</span>
+                  </div>
+                  <div class="timeItem__meta">Sto. Niño, Magalang, Pampanga</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Contact: direct channels + mailto-assisted message form -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="sectionHeader reveal">
+            <h2 class="sectionHeader__title">Contact</h2>
+            <p class="sectionHeader__subtitle">Reach me directly; fast responses via email.</p>
+          </div>
+
+          <div class="grid2">
+            <div class="card reveal">
+              <h3 class="card__title">Jerico G. Sison</h3>
+              <p class="card__text">Magalang, Pampanga</p>
+              <div class="contactRow">
+                <div class="contactLabel">Email</div>
+                <a class="contactValue" href="mailto:jericosison22@gmail.com">jericosison22@gmail.com</a>
+              </div>
+              <div class="contactRow">
+                <div class="contactLabel">Mobile</div>
+                <a class="contactValue" href="tel:+639513472167">0951-347-2167</a>
+              </div>
+              <div class="contactRow">
+                <div class="contactLabel">GitHub</div>
+                <a class="contactValue" href="https://github.com/jerico-sison" target="_blank" rel="noreferrer">
+                  github.com/jerico-sison
+                </a>
+              </div>
+              <div class="contactRow">
+                <div class="contactLabel">Portfolio site</div>
+                <a class="contactValue" href="https://jerico-sison.github.io/Porfolio" target="_blank" rel="noreferrer">
+                  jerico-sison.github.io/Porfolio
+                </a>
+              </div>
+            </div>
+
+            <form class="card reveal contactForm" id="contactForm">
+              <div class="contactForm__intro">
+                <h3 class="card__title">Send a message</h3>
+                <p class="card__text">Opens your email app with everything filled in.</p>
+              </div>
+              <div class="contactForm__fields">
+                <label class="field">
+                  <span class="field__label">Your name</span>
+                  <input class="field__input" name="name" autocomplete="name" required />
+                </label>
+                <label class="field">
+                  <span class="field__label">Subject</span>
+                  <input class="field__input" name="subject" autocomplete="off" required />
+                </label>
+                <label class="field">
+                  <span class="field__label">Message</span>
+                  <textarea class="field__input field__textarea" name="message" rows="5" required></textarea>
+                </label>
+              </div>
+              <div class="contactForm__foot">
+                <button class="btn btn--primary contactForm__submit" type="submit">
+                  Open email
+                </button>
+                <p class="contactForm__hint fineprint" id="formHint" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>© <span id="year"></span> Jerico G. Sison</div>
+        <a class="footer__top" href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
